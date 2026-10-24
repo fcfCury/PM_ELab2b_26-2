@@ -19,6 +19,22 @@ public class ProfissionalTest {
                 "este exemplo só ilustra AAA; substitua pelos seus 2 testes");
     }
 
+    @Test
+    void testePersonal() {
+        Personal personal = new Personal("Ana", "P001");
+        double aulas = personal.addAulaAvulsa(1.0);
+        double ultimoPagamento = personal.registrarPagamento();
+        assertEquals(3687.45, ultimoPagamento,"o pagamento deveria dar R$3687.45");
+    }
+
+    @Test
+    void testePersonal2() {
+        Personal personal = new Personal("Ana", "P001");
+        double aulasAvulsas = personal.addAulaAvulsa(999);
+        assertEquals(0, aulasAvulsas,"o numero de aulas avulsas adcionadas ultrapassa o limite, o numero de aulas retornadas deve ser 0");
+    }
+
+
     // TODO: criar 2 testes unitários (AAA + mensagem na asserção)
     // TODO: um deles deve testar registrarPagamento
 }
